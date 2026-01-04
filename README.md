@@ -1,0 +1,1 @@
+# smtpd-filter-spamclass

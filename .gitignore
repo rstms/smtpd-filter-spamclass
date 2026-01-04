@@ -1,0 +1,7 @@
+smtpd-filter-spamclass
+smtpd-filter-spamclass.exe
+notes
+cruft
+*.core
+*.log
+*postactivate
