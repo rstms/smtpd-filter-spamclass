@@ -42,12 +42,12 @@ var cfgFile string
 var rootCmd = &cobra.Command{
 	Version: "0.0.3",
 	Use:     "smtpd-filter-spamclass",
-	Short:   "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short:   "smtpd filter sets the X-Spam-Class and X-Spam headers",
+	Long: `
+Reads classes config JSON file
+default classes file is /etc/mail/filter_rspamd_classes.json
+Scans headers and updates: 'X-Spam-Class' and 'X-Spam'
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		filter := filter.NewFilter(os.Stdin, os.Stdout)
 		filter.Run()
