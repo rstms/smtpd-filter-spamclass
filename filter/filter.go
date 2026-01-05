@@ -48,7 +48,7 @@ The final threshold value is set to float32-max automatically; 999 is a placehol
 
 *********************************************************************************************/
 
-const Version = "0.0.4"
+const Version = "0.0.1"
 
 const DEFAULT_CLASS_CONFIG_FILE = "/etc/mail/filter_rspamd_classes.json"
 
