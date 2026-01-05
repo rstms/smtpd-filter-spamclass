@@ -1,0 +1,4 @@
+smtpd_filter_addheader:
+  verbose: true
+  class_config_file: testdata/classes.json
+

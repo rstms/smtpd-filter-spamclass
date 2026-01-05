@@ -1,0 +1,14 @@
+{
+    "username@example.org": [
+	{ "name": "ham", "score": 0 },
+	{ "name": "possible", "score": 3 },
+	{ "name": "probable", "score": 10 },
+	{ "name": "spam", "score": 999 }
+    ],
+    "touser@localdomain.ext": [
+	{ "name": "not_spam", "score": 0 },
+	{ "name": "applied_class", "score": 5 },
+	{ "name": "suspected_spam", "score": 10 },
+	{ "name": "is_spam", "score": 999 }
+    ]
+}

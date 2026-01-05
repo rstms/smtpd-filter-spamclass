@@ -33,6 +33,7 @@ package cmd
 import (
 	"os"
 
+	"github.com/rstms/smtpd-filter-spamclass/filter"
 	"github.com/spf13/cobra"
 )
 
@@ -47,7 +48,12 @@ examples and usage of using your application. For example:
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		filter := filter.NewFilter(os.Stdin, os.Stdout)
+		filter.Run()
+	},
 }
+
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -56,4 +62,5 @@ func Execute() {
 }
 func init() {
 	CobraInit(rootCmd)
+	OptionString(rootCmd, "class-config-file", "", "", "class config filename")
 }
