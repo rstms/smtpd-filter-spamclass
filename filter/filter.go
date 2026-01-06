@@ -185,18 +185,28 @@ func (f *Filter) Config() {
 
 func (f *Filter) Register() {
 	for _, name := range f.reports {
-		_, err := fmt.Fprintf(f.output, "register|report|%s|%s\n", f.Subsystem, name)
+		line := fmt.Sprintf("register|report|%s|%s", f.Subsystem, name)
+		log.Printf("%s.Register: %s\n", f.Name, line)
+		_, err := fmt.Fprintf(f.output, "%s\n", line)
 		if err != nil {
 			log.Fatal(Fatal(err))
 		}
 	}
 	for _, name := range f.filters {
-		_, err := fmt.Fprintf(f.output, "register|filter|%s|%s\n", f.Subsystem, name)
+		line := fmt.Sprintf("register|filter|%s|%s", f.Subsystem, name)
+		if f.verbose {
+			log.Printf("%s.Register: %s\n", f.Name, line)
+		}
+		_, err := fmt.Fprintf(f.output, "%s\n", line)
 		if err != nil {
 			log.Fatal(Fatal(err))
 		}
 	}
-	_, err := fmt.Fprintf(f.output, "register|ready\n")
+	line := fmt.Sprintf("register|ready")
+	if f.verbose {
+		log.Printf("%s.Register: %s\n", f.Name, line)
+	}
+	_, err := fmt.Fprintf(f.output, "%s\n", line)
 	if err != nil {
 		log.Fatal(Fatal(err))
 	}
