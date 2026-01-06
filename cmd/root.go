@@ -40,7 +40,7 @@ import (
 var cfgFile string
 
 var rootCmd = &cobra.Command{
-	Version: "0.0.4",
+	Version: "0.0.5",
 	Use:     "smtpd-filter-spamclass",
 	Short:   "smtpd filter sets the X-Spam-Class and X-Spam headers",
 	Long: `
