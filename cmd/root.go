@@ -49,7 +49,8 @@ default classes file is /etc/mail/filter_rspamd_classes.json
 Scans headers and updates: 'X-Spam-Class' and 'X-Spam'
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		filter := filter.NewFilter(os.Stdin, os.Stdout)
+		filter, err := filter.NewFilter(os.Stdin, os.Stdout)
+		cobra.CheckErr(err)
 		filter.Run()
 	},
 }

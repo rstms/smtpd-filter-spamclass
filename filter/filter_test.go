@@ -17,7 +17,8 @@ func TestFilter(t *testing.T) {
 	require.Nil(t, err)
 	testIn, filterOut, err := os.Pipe()
 	require.Nil(t, err)
-	f := NewFilter(filterIn, filterOut)
+	f, err := NewFilter(filterIn, filterOut)
+	require.Nil(t, err)
 	go f.Run()
 	for _, line := range initLines {
 		_, err := testOut.WriteString(line + "\n")
